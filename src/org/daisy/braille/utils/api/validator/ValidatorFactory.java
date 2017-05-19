@@ -37,8 +37,10 @@ import org.osgi.service.component.annotations.ReferencePolicy;
 /**
  * Simple factory for instantiating a Validator based on its identifier
  * @author Joel Håkansson
+ * @deprecated Use corresponding class in package org.daisy.dotify.consumer.validity in dotify.task-api instead
  */
 @Component
+@Deprecated
 public class ValidatorFactory implements ValidatorFactoryService {
 	private final List<ValidatorProvider> providers;
 	private final Map<String, ValidatorProvider> map;

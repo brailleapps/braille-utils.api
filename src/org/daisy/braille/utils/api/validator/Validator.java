@@ -25,7 +25,9 @@ import org.daisy.braille.utils.api.factory.Factory;
 /**
  * Simple interface for validators
  * @author Joel Håkansson
+ * @deprecated Use corresponding class in package org.daisy.dotify.api.validity in dotify.task-api instead
  */
+@Deprecated
 public interface Validator extends Factory {
 
 	/**

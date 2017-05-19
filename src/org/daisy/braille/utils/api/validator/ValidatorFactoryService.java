@@ -19,7 +19,9 @@ import org.daisy.braille.utils.api.factory.FactoryProperties;
  * </p>
  *
  * @author Joel Håkansson
+ * @deprecated Use corresponding class in package org.daisy.dotify.api.validity in dotify.task-api instead
  */
+@Deprecated
 public interface ValidatorFactoryService {
 
 	public Validator newValidator(String identifier);
