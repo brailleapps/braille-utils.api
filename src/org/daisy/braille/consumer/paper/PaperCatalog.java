@@ -73,6 +73,10 @@ public class PaperCatalog implements PaperCatalogService {
 		return ret;
 	}
 
+	/**
+	 * Adds a factory (intended for use by the OSGi framework)
+	 * @param factory the factory to add
+	 */
 	@Reference(type = '*')
 	public void addFactory(PaperProvider factory) {
 		for (Paper paper : factory.list()) {
@@ -80,6 +84,10 @@ public class PaperCatalog implements PaperCatalogService {
 		}
 	}
 
+	/**
+	 * Removes a factory (intended for use by the OSGi framework)
+	 * @param factory the factory to remove
+	 */
 	// Unbind reference added automatically from addFactory annotation
 	public void removeFactory(PaperProvider factory) {
 		synchronized (map) {

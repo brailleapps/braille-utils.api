@@ -1,5 +1,9 @@
 package org.daisy.braille.api.factory;
 
+/**
+ * Provides factory properties.
+ * @author Joel Håkansson
+ */
 public interface FactoryProperties {
 	/**
 	 * Gets the identifier for this Factory

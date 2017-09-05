@@ -58,6 +58,10 @@ public class CustomPaperCollection {
 		}
 	}
 
+	/**
+	 * Gets the instance.
+	 * @return returns the instance
+	 */
 	public synchronized static CustomPaperCollection getInstance() {
 		if (collection==null) {
 			collection = new CustomPaperCollection();
@@ -65,18 +69,48 @@ public class CustomPaperCollection {
 		return collection;
 	}
 
+	/**
+	 * Lists the papers in the collection.
+	 * @return returns a collection of papers
+	 */
 	public synchronized Collection<Paper> list() {
 		return papers;
 	}
 
+	/**
+	 * Adds a new sheet paper to the collection.
+	 * @param name the name
+	 * @param desc the description
+	 * @param width the width
+	 * @param height the height
+	 * @return returns the new sheet paper
+	 * @throws IOException if an I/O error occurs
+	 */
 	public synchronized SheetPaper addNewSheetPaper(String name, String desc, Length width, Length height) throws IOException {
 		return (SheetPaper)add(new SheetPaper(name, desc, nextIdentifier(), width, height));
 	}
 
+	/**
+	 * Adds a new tractor paper to the collection.
+	 * @param name the name
+	 * @param desc the description
+	 * @param across the length across the feed
+	 * @param along the length along the feed
+	 * @return returns the new tractor paper
+	 * @throws IOException if an I/O error occurs
+	 */
 	public synchronized TractorPaper addNewTractorPaper(String name, String desc, Length across, Length along) throws IOException {
 		return (TractorPaper)add(new TractorPaper(name, desc, nextIdentifier(), across,	along));
 	}
 
+	/**
+	 * Adds a new roll paper to the collection.
+	 * @param name the name
+	 * @param desc the description
+	 * @param across the length across the feed
+	 * @return returns the new roll paper
+	 * @throws IOException if an I/O error occurs
+	 */
 	public synchronized RollPaper addNewRollPaper(String name, String desc, Length across) throws IOException  {
 		return (RollPaper)add(new RollPaper(name, desc, nextIdentifier(), across));
 	}
@@ -88,6 +122,11 @@ public class CustomPaperCollection {
 		return p;
 	}
 
+	/**
+	 * Removes the specified paper from the collection.
+	 * @param p the paper to remove
+	 * @throws IOException if an I/O error occurs
+	 */
 	public synchronized void remove(Paper p) throws IOException {
 		syncWithFile();
 		papers.remove(p);

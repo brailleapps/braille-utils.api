@@ -22,10 +22,24 @@ import org.daisy.braille.api.factory.FactoryProperties;
  */
 public interface EmbosserCatalogService {
 
+	/**
+	 * Creates a new embosser with the specified identifier.
+	 * @param identifier the identifier
+	 * @return returns a new embosser, or null if not found
+	 */
 	public Embosser newEmbosser(String identifier);
 
+	/**
+	 * Lists embossers
+	 * @return returns a list of embossers
+	 */
 	public Collection<FactoryProperties> list();
 
+	/**
+	 * Lists embossers matching the specified filter
+	 * @param filter the filter
+	 * @return returns a list of embossers
+	 */
 	public Collection<FactoryProperties> list(EmbosserFilter filter);
 
 }

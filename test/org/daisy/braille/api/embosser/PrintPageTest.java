@@ -11,6 +11,7 @@ import org.daisy.braille.api.paper.SheetPaperFormat;
 import org.daisy.braille.api.paper.SheetPaperFormat.Orientation;
 import org.junit.Test;
 
+@SuppressWarnings("javadoc")
 public class PrintPageTest {
 
 	@Test

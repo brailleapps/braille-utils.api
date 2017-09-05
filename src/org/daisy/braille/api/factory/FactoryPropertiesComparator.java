@@ -14,17 +14,42 @@ public class FactoryPropertiesComparator implements Comparator<FactoryProperties
 	private Order order;
 	private By by;
 
+	/**
+	 * Defines the sort order.
+	 */
 	public enum Order {
+		/**
+		 * Sort up.
+		 */
 		UP,
+		/**
+		 * Sort down.
+		 */
 		DOWN
 	}
 
+	/**
+	 * Defines the item to sort by.
+	 *
+	 */
 	public enum By {
+		/**
+		 * Sort by display name
+		 */
 		DISPLAY_NAME,
+		/**
+		 * Sort by identifier
+		 */
 		IDENTIFIER,
+		/**
+		 * Sort by description
+		 */
 		DESCRIPTION
 	}
 
+	/**
+	 * Creates a new factory properties comparator.
+	 */
 	public FactoryPropertiesComparator() {
 		this(Order.UP, By.DISPLAY_NAME);
 	}
@@ -34,10 +59,21 @@ public class FactoryPropertiesComparator implements Comparator<FactoryProperties
 		this.by = by;
 	}
 
+	/**
+	 * Sets the order.
+	 * @param order the order
+	 * @return returns this object
+	 */
 	public FactoryPropertiesComparator order(Order order) {
 		this.order = order;
 		return this;
 	}
+
+	/**
+	 * Sets the type to order by.
+	 * @param by the type to order by
+	 * @return returns this object
+	 */
 	public FactoryPropertiesComparator by(By by) {
 		this.by = by;
 		return this;

@@ -48,7 +48,7 @@ public class EmbosserCatalog implements FactoryCatalog<Embosser>, EmbosserCatalo
 	private final List<EmbosserProvider> providers;
 	private final Map<String, EmbosserProvider> map;
 	private final Logger logger;
-	
+
 	/**
 	 * Creates a new empty instance. This method is public because it is required by OSGi.
 	 * In an SPI context, use newInstance()
@@ -58,7 +58,7 @@ public class EmbosserCatalog implements FactoryCatalog<Embosser>, EmbosserCatalo
 		providers = new CopyOnWriteArrayList<>();
 		map = Collections.synchronizedMap(new HashMap<String, EmbosserProvider>());
 	}
-	
+
 	/**
 	 * <p>
 	 * Creates a new EmbosserCatalog and populates it using the SPI
@@ -83,13 +83,21 @@ public class EmbosserCatalog implements FactoryCatalog<Embosser>, EmbosserCatalo
 		}
 		return ret;
 	}
-	
+
+	/**
+	 * Adds a factory (intended for use by the OSGi framework)
+	 * @param factory the factory to add
+	 */
 	@Reference(type = '*')
 	public void addFactory(EmbosserProvider factory) {
 		logger.finer("Adding factory: " + factory);
 		providers.add(factory);
 	}
 
+	/**
+	 * Removes a factory (intended for use by the OSGi framework)
+	 * @param factory the factory to remove
+	 */
 	// Unbind reference added automatically from addFactory annotation
 	public void removeFactory(EmbosserProvider factory) {
 		// this is to avoid adding items to the cache that were removed while
@@ -99,8 +107,8 @@ public class EmbosserCatalog implements FactoryCatalog<Embosser>, EmbosserCatalo
 			map.clear();
 		}
 	}
-	
-        @Override
+
+	@Override
 	public Embosser get(String identifier) {
 		if (identifier==null) {
 			return null;
@@ -128,13 +136,13 @@ public class EmbosserCatalog implements FactoryCatalog<Embosser>, EmbosserCatalo
 			return null;
 		}
 	}
-	
-        @Override
+
+	@Override
 	public Embosser newEmbosser(String identifier) {
 		return get(identifier);
 	}
-	
-        @Override
+
+	@Override
 	public Collection<FactoryProperties> list() {
 		Collection<FactoryProperties> ret = new ArrayList<>();
 		for (EmbosserProvider p : providers) {
@@ -142,8 +150,8 @@ public class EmbosserCatalog implements FactoryCatalog<Embosser>, EmbosserCatalo
 		}
 		return ret;
 	}
-	
-        @Override
+
+	@Override
 	public Collection<FactoryProperties> list(EmbosserFilter filter) {
 		Collection<FactoryProperties> ret = new ArrayList<>();
 		for (FactoryProperties fp : list()) {

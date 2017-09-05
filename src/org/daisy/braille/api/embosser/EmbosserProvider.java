@@ -46,5 +46,10 @@ public interface EmbosserProvider extends Provider<FactoryProperties> {
 	 */
 	public void setCreatedWithSPI();
 
+	/**
+	 * Returns a new embosser with the specified identifier.
+	 * @param identifier the identifier
+	 * @return returns a new embosser
+	 */
 	public Embosser newFactory(String identifier);
 }

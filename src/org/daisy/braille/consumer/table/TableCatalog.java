@@ -81,12 +81,20 @@ public class TableCatalog implements FactoryCatalog<Table>, TableCatalogService 
 		return ret;
 	}
 
+	/**
+	 * Adds a factory (intended for use by the OSGi framework)
+	 * @param factory the factory to add
+	 */
 	@Reference(type = '*')
 	public void addFactory(TableProvider factory) {
 		logger.finer("Adding factory: " + factory);
 		providers.add(factory);
 	}
 
+	/**
+	 * Removes a factory (intended for use by the OSGi framework)
+	 * @param factory the factory to remove
+	 */
 	// Unbind reference added automatically from addFactory annotation
 	public void removeFactory(TableProvider factory) {
 		// this is to avoid adding items to the cache that were removed while

@@ -46,6 +46,9 @@ public class Length implements Serializable {
 		 * Inch units
 		 */
 		INCH};
+		/**
+		 * 1 inch is 25.4 mm.
+		 */
 		public static final double INCH_IN_MM = 25.4;
 
 		private final double originalValue;

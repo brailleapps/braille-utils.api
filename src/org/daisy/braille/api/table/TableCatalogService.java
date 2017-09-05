@@ -22,10 +22,24 @@ import org.daisy.braille.api.factory.FactoryProperties;
  */
 public interface TableCatalogService {
 
+	/**
+	 * Creates a new table with the specified identifier.
+	 * @param identifier the identifier
+	 * @return returns a new table
+	 */
 	public Table newTable(String identifier);
 
+	/**
+	 * Lists the tables
+	 * @return returns a collection of table properties
+	 */
 	public Collection<FactoryProperties> list();
 
+	/**
+	 * Lists the tables that matches the specified filter
+	 * @param filter the filter
+	 * @return returns a collection fo table properties
+	 */
 	public Collection<FactoryProperties> list(TableFilter filter);
 
 }

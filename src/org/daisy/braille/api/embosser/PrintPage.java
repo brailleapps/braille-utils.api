@@ -68,19 +68,31 @@ public class PrintPage implements Dimensions {
 	private final PrintDirection direction;
 	private final PrintMode mode;
 
-	public PrintPage(PageFormat inputPage,
-			PrintDirection direction,
-			PrintMode mode) {
-
+	/**
+	 * Creates a new print page with the specified parameters.
+	 * @param inputPage the page format
+	 * @param direction the print direction
+	 * @param mode the print mode
+	 */
+	public PrintPage(PageFormat inputPage, PrintDirection direction, PrintMode mode) {
 		this.inputPage = inputPage;
 		this.direction = direction;
 		this.mode = mode;
 	}
 
+	/**
+	 * Creates a new print page with the specified page format
+	 * and default print direction and print mode.
+	 * @param inputPage
+	 */
 	public PrintPage(PageFormat inputPage) {
 		this(inputPage, PrintDirection.UPRIGHT, PrintMode.REGULAR);
 	}
 
+	/**
+	 * Gets the length of the paper perpendicular to the direction of the paper feed.
+	 * @return returns the length.
+	 */
 	public Length getLengthAcrossFeed() {
 		switch (inputPage.getPageFormatType()) {
 		case SHEET: {
@@ -100,6 +112,10 @@ public class PrintPage implements Dimensions {
 		}
 	}
 
+	/**
+	 * Gets the length of the paper along the direction of the paper feed
+	 * @return returns the length.
+	 */
 	public Length getLengthAlongFeed() {
 		switch (inputPage.getPageFormatType()) {
 		case SHEET: {
@@ -152,6 +168,10 @@ public class PrintPage implements Dimensions {
 		}
 	}
 
+	/**
+	 * Gets the shape of the print page.
+	 * @return returns the shape
+	 */
 	public Shape getShape() {
 		if (getWidth()<getHeight()) {
 			return Shape.PORTRAIT;
