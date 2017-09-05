@@ -17,7 +17,6 @@
  */
 package org.daisy.braille.utils.api.embosser;
 
-import org.daisy.braille.utils.api.factory.FactoryProperties;
 import org.daisy.braille.utils.api.factory.Provider;
 
 /**
@@ -25,8 +24,8 @@ import org.daisy.braille.utils.api.factory.Provider;
  * @author Joel Håkansson
  *
  */
-public interface EmbosserProvider extends Provider<FactoryProperties> {
-	
+public interface EmbosserProvider extends Provider<EmbosserFactoryProperties> {
+
 	/**
 	 * <p>Informs the implementation that it was discovered and instantiated using
 	 * information collected from a file within the <tt>META-INF/services</tt> directory.

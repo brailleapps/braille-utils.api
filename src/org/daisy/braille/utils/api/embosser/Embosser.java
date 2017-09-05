@@ -30,7 +30,7 @@ import org.daisy.braille.utils.api.table.TableFilter;
  * Provides an interface for common properties of an Embosser.
  * @author Joel Håkansson
  */
-public interface Embosser extends Factory, EmbosserProperties {
+public interface Embosser extends Factory, EmbosserFactoryProperties, EmbosserProperties {
 
 	/**
 	 * Returns true if dimension is supported

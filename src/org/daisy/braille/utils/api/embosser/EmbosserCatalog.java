@@ -141,7 +141,12 @@ public class EmbosserCatalog implements FactoryCatalog<Embosser>, EmbosserCatalo
 
 	@Override
 	public Collection<FactoryProperties> list() {
-		Collection<FactoryProperties> ret = new ArrayList<>();
+		return new ArrayList<>(listEmbossers());
+	}
+
+	@Override
+	public Collection<EmbosserFactoryProperties> listEmbossers() {
+		Collection<EmbosserFactoryProperties> ret = new ArrayList<>();
 		for (EmbosserProvider p : providers) {
 			ret.addAll(p.list());
 		}
@@ -150,8 +155,13 @@ public class EmbosserCatalog implements FactoryCatalog<Embosser>, EmbosserCatalo
 
 	@Override
 	public Collection<FactoryProperties> list(EmbosserFilter filter) {
-		Collection<FactoryProperties> ret = new ArrayList<>();
-		for (FactoryProperties fp : list()) {
+		return new ArrayList<>(listEmbossers(filter));
+	}
+
+	@Override
+	public Collection<EmbosserFactoryProperties> listEmbossers(EmbosserFilter filter) {
+		Collection<EmbosserFactoryProperties> ret = new ArrayList<>();
+		for (EmbosserFactoryProperties fp : listEmbossers()) {
 			if (filter.accept(fp)) {
 				ret.add(fp);
 			}

@@ -34,6 +34,12 @@ public interface EmbosserCatalogService {
 	 * @return returns a list of embossers
 	 */
 	public Collection<FactoryProperties> list();
+	
+	/**
+	 * Lists embossers
+	 * @return returns a list of embossers
+	 */
+	public Collection<EmbosserFactoryProperties> listEmbossers();
 
 	/**
 	 * Lists embossers matching the specified filter
@@ -41,5 +47,12 @@ public interface EmbosserCatalogService {
 	 * @return returns a list of embossers
 	 */
 	public Collection<FactoryProperties> list(EmbosserFilter filter);
+	
+	/**
+	 * Lists embossers matching the specified filter
+	 * @param filter the filter
+	 * @return returns a list of embossers
+	 */
+	public Collection<EmbosserFactoryProperties> listEmbossers(EmbosserFilter filter);
 
 }
