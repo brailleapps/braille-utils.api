@@ -1,16 +1,16 @@
 /*
- * Braille Utils (C) 2010-2011 Daisy Consortium 
- * 
+ * Braille Utils (C) 2010-2011 Daisy Consortium
+ *
  * This library is free software; you can redistribute it and/or modify it under
  * the terms of the GNU Lesser General Public License as published by the Free
  * Software Foundation; either version 2.1 of the License, or (at your option)
  * any later version.
- * 
+ *
  * This library is distributed in the hope that it will be useful, but WITHOUT
  * ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS
  * FOR A PARTICULAR PURPOSE. See the GNU Lesser General Public License for more
  * details.
- * 
+ *
  * You should have received a copy of the GNU Lesser General Public License
  * along with this library; if not, write to the Free Software Foundation, Inc.,
  * 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
@@ -40,7 +40,7 @@ import aQute.bnd.annotation.component.Reference;
 @Component
 public class PaperCatalog implements PaperCatalogService {
 	private final Map<String, Paper> map;
-	
+
 	/**
 	 * Creates a new empty instance. This method is public because it is required by OSGi.
 	 * In an SPI context, use newInstance()
@@ -48,19 +48,19 @@ public class PaperCatalog implements PaperCatalogService {
 	public PaperCatalog() {
 		map = Collections.synchronizedMap(new HashMap<String, Paper>());
 	}
-	
+
 	/**
 	 * <p>
 	 * Creates a new PaperCatalog and populates it using the SPI
 	 * (java service provider interface).
 	 * </p>
-	 * 
+	 *
 	 * <p>
 	 * In an OSGi context, an instance should be retrieved using the service
 	 * registry. It will be registered under the PaperCatalogService
 	 * interface.
 	 * </p>
-	 * 
+	 *
 	 * @return returns a new PaperCatalogCatalog
 	 */
 	public static PaperCatalog newInstance() {
@@ -72,7 +72,7 @@ public class PaperCatalog implements PaperCatalogService {
 		}
 		return ret;
 	}
-	
+
 	@Reference(type = '*')
 	public void addFactory(PaperProvider factory) {
 		for (Paper paper : factory.list()) {

@@ -1,16 +1,16 @@
 /*
- * Braille Utils (C) 2010-2011 Daisy Consortium 
- * 
+ * Braille Utils (C) 2010-2011 Daisy Consortium
+ *
  * This library is free software; you can redistribute it and/or modify it under
  * the terms of the GNU Lesser General Public License as published by the Free
  * Software Foundation; either version 2.1 of the License, or (at your option)
  * any later version.
- * 
+ *
  * This library is distributed in the hope that it will be useful, but WITHOUT
  * ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS
  * FOR A PARTICULAR PURPOSE. See the GNU Lesser General Public License for more
  * details.
- * 
+ *
  * You should have received a copy of the GNU Lesser General Public License
  * along with this library; if not, write to the Free Software Foundation, Inc.,
  * 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
@@ -47,7 +47,7 @@ public class TableCatalog implements FactoryCatalog<Table>, TableCatalogService 
 	private final List<TableProvider> providers;
 	private final Map<String, TableProvider> map;
 	private final Logger logger;
-	
+
 	/**
 	 * Creates a new empty instance. This method is public because it is required by OSGi.
 	 * In an SPI context, use newInstance()
@@ -57,19 +57,19 @@ public class TableCatalog implements FactoryCatalog<Table>, TableCatalogService 
 		providers = new CopyOnWriteArrayList<>();
 		map = Collections.synchronizedMap(new HashMap<String, TableProvider>());
 	}
-	
+
 	/**
 	 * <p>
 	 * Creates a new TableCatalog and populates it using the SPI
 	 * (java service provider interface).
 	 * </p>
-	 * 
+	 *
 	 * <p>
 	 * In an OSGi context, an instance should be retrieved using the service
 	 * registry. It will be registered under the TableCatalogService
 	 * interface.
 	 * </p>
-	 * 
+	 *
 	 * @return returns a new TableCatalog
 	 */
 	public static TableCatalog newInstance() {
@@ -80,7 +80,7 @@ public class TableCatalog implements FactoryCatalog<Table>, TableCatalogService 
 		}
 		return ret;
 	}
-	
+
 	@Reference(type = '*')
 	public void addFactory(TableProvider factory) {
 		logger.finer("Adding factory: " + factory);
@@ -97,7 +97,7 @@ public class TableCatalog implements FactoryCatalog<Table>, TableCatalogService 
 		}
 	}
 
-        @Override
+	@Override
 	public Table get(String identifier) {
 		if (identifier==null) {
 			return null;
@@ -114,7 +114,7 @@ public class TableCatalog implements FactoryCatalog<Table>, TableCatalogService 
 							map.put(fp.getIdentifier(), p);
 							template = p;
 							break;
-						}						
+						}
 					}
 				}
 			}
@@ -125,13 +125,13 @@ public class TableCatalog implements FactoryCatalog<Table>, TableCatalogService 
 			return null;
 		}
 	}
-	
-        @Override
+
+	@Override
 	public Table newTable(String identifier) {
 		return get(identifier);
 	}
-	
-        @Override
+
+	@Override
 	public Collection<FactoryProperties> list() {
 		Collection<FactoryProperties> ret = new ArrayList<>();
 		for (TableProvider p : providers) {
@@ -139,8 +139,8 @@ public class TableCatalog implements FactoryCatalog<Table>, TableCatalogService 
 		}
 		return ret;
 	}
-	
-        @Override
+
+	@Override
 	public Collection<FactoryProperties> list(TableFilter filter) {
 		Collection<FactoryProperties> ret = new ArrayList<>();
 		for (FactoryProperties fp : list()) {

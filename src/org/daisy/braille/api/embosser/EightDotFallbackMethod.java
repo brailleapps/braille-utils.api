@@ -9,7 +9,7 @@ public enum EightDotFallbackMethod {
 	 */
 	MASK,
 	/**
-	 * Replace the character with a fixed replacement character 
+	 * Replace the character with a fixed replacement character
 	 */
 	REPLACE,
 	/**

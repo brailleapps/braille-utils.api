@@ -1,16 +1,16 @@
 /*
- * Braille Utils (C) 2010-2011 Daisy Consortium 
- * 
+ * Braille Utils (C) 2010-2011 Daisy Consortium
+ *
  * This library is free software; you can redistribute it and/or modify it under
  * the terms of the GNU Lesser General Public License as published by the Free
  * Software Foundation; either version 2.1 of the License, or (at your option)
  * any later version.
- * 
+ *
  * This library is distributed in the hope that it will be useful, but WITHOUT
  * ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS
  * FOR A PARTICULAR PURPOSE. See the GNU Lesser General Public License for more
  * details.
- * 
+ *
  * You should have received a copy of the GNU Lesser General Public License
  * along with this library; if not, write to the Free Software Foundation, Inc.,
  * 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
@@ -26,13 +26,13 @@ import java.io.Serializable;
  */
 public abstract class AbstractFactory implements Factory, Serializable {
 	/**
-	 * 
+	 *
 	 */
 	private static final long serialVersionUID = -1845398376520121442L;
 	private final String name;
 	private final String desc;
 	private final String identifier;
-	
+
 	/**
 	 * Creates a new AbstractFactory with the supplied values
 	 * @param name the factory name
@@ -48,7 +48,7 @@ public abstract class AbstractFactory implements Factory, Serializable {
 			this.identifier = identifier;
 		}
 	}
-	
+
 	/**
 	 * Creates a new AbstractFactory with the supplied values
 	 * @param name the factory name
@@ -58,7 +58,7 @@ public abstract class AbstractFactory implements Factory, Serializable {
 	public AbstractFactory(String name, String desc, Enum<? extends Enum<?>> identifier) {
 		this(name, desc, identifier.getClass().getCanonicalName() + "." + identifier.toString());
 	}
-	
+
 	@Override
 	public String getDescription() {
 		return desc;

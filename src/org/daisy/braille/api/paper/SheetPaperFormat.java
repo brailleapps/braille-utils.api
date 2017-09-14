@@ -1,16 +1,16 @@
 /*
- * Braille Utils (C) 2010-2011 Daisy Consortium 
- * 
+ * Braille Utils (C) 2010-2011 Daisy Consortium
+ *
  * This library is free software; you can redistribute it and/or modify it under
  * the terms of the GNU Lesser General Public License as published by the Free
  * Software Foundation; either version 2.1 of the License, or (at your option)
  * any later version.
- * 
+ *
  * This library is distributed in the hope that it will be useful, but WITHOUT
  * ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS
  * FOR A PARTICULAR PURPOSE. See the GNU Lesser General Public License for more
  * details.
- * 
+ *
  * You should have received a copy of the GNU Lesser General Public License
  * along with this library; if not, write to the Free Software Foundation, Inc.,
  * 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
@@ -32,7 +32,7 @@ public class SheetPaperFormat extends AbstractPageFormat {
 		 */
 		DEFAULT,
 		/**
-		 *  Represents reversed orientation as defined by the Paper 
+		 *  Represents reversed orientation as defined by the Paper
 		 */
 		REVERSED
 	}
@@ -49,7 +49,7 @@ public class SheetPaperFormat extends AbstractPageFormat {
 		this.pageHeight = paper.getPageHeight();
 		this.orientation = orientation;
 	}
-	
+
 	/**
 	 * Creates a new cut-sheet paper.
 	 * @param pageWidth the paper width in the default orientation
@@ -58,7 +58,7 @@ public class SheetPaperFormat extends AbstractPageFormat {
 	public SheetPaperFormat(Length pageWidth, Length pageHeight) {
 		this(pageWidth, pageHeight, Orientation.DEFAULT);
 	}
-	
+
 	/**
 	 * Creates a new cut-sheet paper.
 	 * @param pageWidth the paper width in the default orientation
@@ -73,7 +73,7 @@ public class SheetPaperFormat extends AbstractPageFormat {
 
 	/**
 	 * Gets the orientation of this paper format.
-	 * @return returns the orientation 
+	 * @return returns the orientation
 	 */
 	public Orientation getOrientation() {
 		return orientation;
@@ -85,10 +85,10 @@ public class SheetPaperFormat extends AbstractPageFormat {
 	 */
 	public Length getPageWidth() {
 		switch (orientation) {
-			case REVERSED:
-				return pageHeight;
-			case DEFAULT: default:
-				return pageWidth;
+		case REVERSED:
+			return pageHeight;
+		case DEFAULT: default:
+			return pageWidth;
 		}
 	}
 
@@ -98,19 +98,19 @@ public class SheetPaperFormat extends AbstractPageFormat {
 	 */
 	public Length getPageHeight() {
 		switch (orientation) {
-			case REVERSED:
-				return pageWidth;
-			case DEFAULT: default:
-				return pageHeight;
+		case REVERSED:
+			return pageWidth;
+		case DEFAULT: default:
+			return pageHeight;
 		}
 	}
 
-        @Override
+	@Override
 	public Type getPageFormatType() {
 		return Type.SHEET;
 	}
 
-        @Override
+	@Override
 	public SheetPaperFormat asSheetPaperFormat() {
 		return this;
 	}
