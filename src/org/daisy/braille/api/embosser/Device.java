@@ -30,7 +30,7 @@ public interface Device {
 	/**
 	 * Transmits a file to the Device
 	 * @param file the file to transmit
-	 * @throws PrintException 
+	 * @throws PrintException if the file could not be transmitted
 	 */
 	public void transmit(File file) throws PrintException;
 

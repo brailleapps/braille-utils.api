@@ -81,6 +81,7 @@ public interface EmbosserProperties {
 	 * on the same side of the paper (and two more on the other side), so that 
 	 * a readable document is created by stapling and folding the output stack 
 	 * in the middle.
+	 * @param mode the print mode
 	 * @return returns true if this embosser supports magazine layout, false otherwise.
 	 */
 	public boolean supportsPrintMode(PrintMode mode);

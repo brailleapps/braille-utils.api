@@ -28,7 +28,7 @@ public interface BrailleConverter {
 	/**
 	 * Transcodes the given text string as braille. This may be a one-to-one mapping or
 	 * a many-to-one depending on the table implementation.
-	 * @param text
+	 * @param text the text to convert
 	 * @return returns a Unicode string of braille
 	 */
 	public String toBraille(String text);
@@ -41,7 +41,7 @@ public interface BrailleConverter {
 	 * an implementation cannot rely on it.
 	 * 
 	 * Values must be between 0x2800 and 0x28FF.
-	 * @param braille
+	 * @param braille the braille to convert
 	 * @return returns a text string
 	 */
 	public String toText(String braille);

@@ -39,43 +39,44 @@ public interface EmbosserWriter extends EmbosserWriterProperties, Closeable {
 	 * a complete row of braille in a single chunk. However, an implementation
 	 * may also call this method repeatedly without any other calls in between.
 	 * @param braille characters in the range 0x2800 to 0x28FF 
-	 * @throws IOException
+	 * @throws IOException if an I/O error occurs
 	 */
 	public void write(String braille) throws IOException;
 	/**
 	 * Starts a new line
-	 * @throws IOException
+	 * @throws IOException if an I/O error occurs
 	 */
 	public void newLine() throws IOException;
 	/**
 	 * Starts a new page
-	 * @throws IOException
+	 * @throws IOException if an I/O error occurs
 	 */
 	public void newPage() throws IOException;
 	/** 
 	 * Starts a new page on a blank sheet of paper 
 	 * with the specified duplex settings.
-	 * @param duplex
-	 * @throws IOException
+	 * @param duplex if both sides of sheets should be used, false otherwise 
+	 * @throws IOException if an I/O error occurs
 	 */
 	public void newSectionAndPage(boolean duplex) throws IOException;
 	/**
 	 * Starts a new page on a blank sheet of paper in a new volume
 	 * with the specified duplex settings.
-	 * @param duplex
-	 * @throws IOException
+	 * @param duplex if both sides of sheets should be used, false otherwise
+	 * @throws IOException if an I/O error occurs
 	 */
 	public void newVolumeSectionAndPage(boolean duplex) throws IOException;
 	/**
-	 * Opens for writing using the default contract
-	 * @throws IOException if an I/O exception of some sort has occurred
+	 * Opens for writing using the default contract.
+	 * @param duplex true if both sides of sheets should be used, false otherwise
+	 * @throws IOException if an I/O error occurs
 	 */
 	public void open(boolean duplex) throws IOException;
 	
 	/**
-	 * Opens for writing
-	 * @param duplex
-	 * @param contract
+	 * Opens for writing using the specified contract.
+	 * @param duplex if both sides of sheets should be used, false otherwise
+	 * @param contract the contract
 	 * @throws IOException if an I/O exception of some sort has occurred
 	 * @throws ContractNotSupportedException if the supplied contract is not supported, that is to say
 	 * if the contract does not contain information required by the implementation
@@ -96,7 +97,7 @@ public interface EmbosserWriter extends EmbosserWriterProperties, Closeable {
 	 * Sets the row gap for following calls to newLine
 	 * to the specified value, measured as an 
 	 * integer multiple of the dot-to-dot height.
-	 * @param value
+	 * @param value the row gap
 	 */
 	public void setRowGap(int value);
 	/**
