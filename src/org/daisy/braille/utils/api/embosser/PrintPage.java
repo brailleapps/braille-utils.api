@@ -83,7 +83,7 @@ public class PrintPage implements Dimensions {
 	/**
 	 * Creates a new print page with the specified page format
 	 * and default print direction and print mode.
-	 * @param inputPage
+	 * @param inputPage the page format
 	 */
 	public PrintPage(PageFormat inputPage) {
 		this(inputPage, PrintDirection.UPRIGHT, PrintMode.REGULAR);
