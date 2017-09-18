@@ -26,9 +26,9 @@ import java.io.Serializable;
 public abstract class AbstractPaper implements Paper, Serializable {
 
 	/**
-	 *
+	 * 
 	 */
-	private static final long serialVersionUID = -1622983592321625679L;
+	private static final long serialVersionUID = 6719586492760029428L;
 	private final String name;
 	private final String desc;
 	private final String identifier;

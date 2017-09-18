@@ -25,10 +25,11 @@ import java.io.Serializable;
  *
  */
 public abstract class AbstractFactory implements Factory, Serializable {
+
 	/**
-	 *
+	 * 
 	 */
-	private static final long serialVersionUID = -1845398376520121442L;
+	private static final long serialVersionUID = 3248048759239384586L;
 	private final String name;
 	private final String desc;
 	private final String identifier;

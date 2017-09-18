@@ -25,9 +25,9 @@ package org.daisy.braille.utils.api.embosser;
 public class EmbosserFactoryException extends Exception {
 
 	/**
-	 *
+	 * 
 	 */
-	private static final long serialVersionUID = -1266357428040633688L;
+	private static final long serialVersionUID = 3497143076996552777L;
 
 	/**
 	 * Constructs a new exception with {@code null} as its detail message.

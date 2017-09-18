@@ -25,9 +25,9 @@ package org.daisy.braille.utils.api.embosser;
 public class ContractNotSupportedException extends Exception {
 
 	/**
-	 *
+	 * 
 	 */
-	private static final long serialVersionUID = 4350090838306339507L;
+	private static final long serialVersionUID = 4756911687181121937L;
 
 	/**
 	 * Constructs a new exception with {@code null} as its detail message.

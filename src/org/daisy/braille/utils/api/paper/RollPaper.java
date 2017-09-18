@@ -23,10 +23,11 @@ package org.daisy.braille.utils.api.paper;
  * @author Joel Håkansson
  */
 public class RollPaper extends AbstractPaper {
+
 	/**
-	 *
+	 * 
 	 */
-	private static final long serialVersionUID = -6739289682441153310L;
+	private static final long serialVersionUID = 8817783441029734127L;
 	private final Length across;
 
 	/**

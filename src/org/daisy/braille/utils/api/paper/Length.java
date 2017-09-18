@@ -25,10 +25,11 @@ import java.io.Serializable;
  * @author Joel Håkansson
  */
 public class Length implements Serializable {
+
 	/**
-	 *
+	 * 
 	 */
-	private static final long serialVersionUID = 6483122895979990975L;
+	private static final long serialVersionUID = -710418608459321788L;
 
 	/**
 	 * Defines possible units to be used when expressing a length value

@@ -24,9 +24,9 @@ package org.daisy.braille.utils.api.embosser;
 public class UnsupportedPaperException extends EmbosserFactoryException {
 
 	/**
-	 *
+	 * 
 	 */
-	private static final long serialVersionUID = 4972964705499633760L;
+	private static final long serialVersionUID = 2070661857330277739L;
 
 	/**
 	 * Constructs a new exception with {@code null} as its detail message.
