@@ -21,8 +21,9 @@ package org.daisy.braille.utils.api.embosser;
  * EmbosserWriter to optimize or configure communication based on actual
  * properties of the expected communication.
  * @author Joel Håkansson
- *
+ * @deprecated Removed without replacement
  */
+@Deprecated
 public class Contract {
 	/**
 	 * Defines a braille range

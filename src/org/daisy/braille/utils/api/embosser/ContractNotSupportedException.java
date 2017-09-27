@@ -20,8 +20,9 @@ package org.daisy.braille.utils.api.embosser;
 /**
  * Provides an exception to indicate that the Contract is not supported
  * @author Joel Håkansson
- *
+ * @deprecated Removed without replacement
  */
+@Deprecated
 public class ContractNotSupportedException extends Exception {
 
 	/**

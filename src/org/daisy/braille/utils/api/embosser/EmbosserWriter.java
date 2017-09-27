@@ -80,7 +80,9 @@ public interface EmbosserWriter extends EmbosserWriterProperties, Closeable {
 	 * @throws IOException if an I/O exception of some sort has occurred
 	 * @throws ContractNotSupportedException if the supplied contract is not supported, that is to say
 	 * if the contract does not contain information required by the implementation
+	 * @deprecated Removed without replacement
 	 */
+	@Deprecated
 	public void open(boolean duplex, Contract contract) throws IOException, ContractNotSupportedException;
 
 	/**
