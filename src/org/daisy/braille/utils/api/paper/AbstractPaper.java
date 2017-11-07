@@ -38,7 +38,9 @@ public abstract class AbstractPaper implements Paper, Serializable {
 	 * @param name the name of the paper
 	 * @param desc the description of the paper
 	 * @param identifier the identifier
+	 * @deprecated use {@link #AbstractPaper(String, String, String)}
 	 */
+	@Deprecated
 	public AbstractPaper(String name, String desc, Enum<? extends Enum<?>> identifier) {
 		this(name, desc, identifier.getClass().getCanonicalName() + "." + identifier.toString());
 	}

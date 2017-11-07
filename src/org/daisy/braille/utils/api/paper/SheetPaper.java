@@ -37,14 +37,24 @@ public class SheetPaper extends AbstractPaper {
 	 * @param identifier an identifier
 	 * @param pageWidth the width of the paper in the default orientation
 	 * @param pageHeight the height of the paper in the default orientation
+	 * @deprecated use {@link #SheetPaper(String, String, String, Length, Length)}
 	 */
+	@Deprecated
 	public SheetPaper(String name, String desc, Enum<? extends Enum<?>> identifier, Length pageWidth, Length pageHeight) {
 		super(name, desc, identifier);
 		this.pageWidth = pageWidth;
 		this.pageHeight = pageHeight;
 	}
 
-	SheetPaper(String name, String desc, String identifier, Length pageWidth, Length pageHeight) {
+	/**
+	 * Creates a new cut-sheet paper.
+	 * @param name a name
+	 * @param desc a description
+	 * @param identifier an identifier
+	 * @param pageWidth the width of the paper in the default orientation
+	 * @param pageHeight the height of the paper in the default orientation
+	 */
+	public SheetPaper(String name, String desc, String identifier, Length pageWidth, Length pageHeight) {
 		super(name, desc, identifier);
 		this.pageWidth = pageWidth;
 		this.pageHeight = pageHeight;

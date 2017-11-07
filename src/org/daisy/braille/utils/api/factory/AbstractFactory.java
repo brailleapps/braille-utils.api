@@ -18,6 +18,7 @@
 package org.daisy.braille.utils.api.factory;
 
 import java.io.Serializable;
+import java.util.logging.Logger;
 
 /**
  * Provides an abstract class for Factories.
@@ -25,6 +26,7 @@ import java.io.Serializable;
  *
  */
 public abstract class AbstractFactory implements Factory, Serializable {
+	private static final Logger logger = Logger.getLogger(AbstractFactory.class.getCanonicalName());
 
 	/**
 	 * 
@@ -35,7 +37,9 @@ public abstract class AbstractFactory implements Factory, Serializable {
 	private final String identifier;
 
 	/**
-	 * Creates a new AbstractFactory with the supplied values
+	 * Creates a new AbstractFactory with the supplied values.
+	 * It is currently possible to supply a null identifier, however this will
+	 * throw a null pointer exception in future versions.
 	 * @param name the factory name
 	 * @param desc the factory description
 	 * @param identifier the factory identifier
@@ -43,8 +47,10 @@ public abstract class AbstractFactory implements Factory, Serializable {
 	public AbstractFactory(String name, String desc, String identifier) {
 		this.name = name;
 		this.desc = desc;
+		//TODO: Objects.requireNonNull(identifier);
 		if (identifier==null) {
 			this.identifier = this.toString();
+			logger.warning("Don't pass null identifier, this will throw an exception in future versions.");
 		} else {
 			this.identifier = identifier;
 		}
@@ -55,7 +61,9 @@ public abstract class AbstractFactory implements Factory, Serializable {
 	 * @param name the factory name
 	 * @param desc the factory description
 	 * @param identifier the factory identifier
+	 * @deprecated use {@link #AbstractFactory(String, String, String)}
 	 */
+	@Deprecated
 	public AbstractFactory(String name, String desc, Enum<? extends Enum<?>> identifier) {
 		this(name, desc, identifier.getClass().getCanonicalName() + "." + identifier.toString());
 	}
