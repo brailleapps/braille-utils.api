@@ -5,6 +5,5 @@ Export-Package: \
 	org.daisy.braille.utils.api.paper,\
 	org.daisy.braille.utils.api.table,\
 	org.daisy.braille.utils.api.validator
-Include-Resource: / = src/
--sources: false
+-sources: true
 Service-Component: *
