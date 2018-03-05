@@ -29,9 +29,10 @@ import java.util.concurrent.CopyOnWriteArrayList;
 
 import org.daisy.braille.utils.api.factory.FactoryFilter;
 import org.daisy.braille.utils.api.factory.FactoryProperties;
-
-import aQute.bnd.annotation.component.Component;
-import aQute.bnd.annotation.component.Reference;
+import org.osgi.service.component.annotations.Component;
+import org.osgi.service.component.annotations.Reference;
+import org.osgi.service.component.annotations.ReferenceCardinality;
+import org.osgi.service.component.annotations.ReferencePolicy;
 
 /**
  * Simple factory for instantiating a Validator based on its identifier
@@ -78,7 +79,7 @@ public class ValidatorFactory implements ValidatorFactoryService {
 	 * Adds a factory (intended for use by the OSGi framework)
 	 * @param factory the factory to add
 	 */
-	@Reference(type = '*')
+	@Reference(cardinality=ReferenceCardinality.MULTIPLE, policy=ReferencePolicy.DYNAMIC)
 	public void addFactory(ValidatorProvider factory) {
 		providers.add(factory);
 	}

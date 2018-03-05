@@ -25,8 +25,10 @@ import java.util.Iterator;
 import java.util.Map;
 import java.util.ServiceLoader;
 
-import aQute.bnd.annotation.component.Component;
-import aQute.bnd.annotation.component.Reference;
+import org.osgi.service.component.annotations.Component;
+import org.osgi.service.component.annotations.Reference;
+import org.osgi.service.component.annotations.ReferenceCardinality;
+import org.osgi.service.component.annotations.ReferencePolicy;
 
 /**
  * Provides a catalog of Paper factories.
@@ -72,7 +74,7 @@ public class PaperCatalog implements PaperCatalogService {
 	 * Adds a factory (intended for use by the OSGi framework)
 	 * @param factory the factory to add
 	 */
-	@Reference(type = '*')
+	@Reference(cardinality=ReferenceCardinality.MULTIPLE, policy=ReferencePolicy.DYNAMIC)
 	public void addFactory(PaperProvider factory) {
 		for (Paper paper : factory.list()) {
 			map.put(paper.getIdentifier(), paper);
