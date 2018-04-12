@@ -140,6 +140,7 @@ public class EmbosserCatalog implements FactoryCatalog<Embosser>, EmbosserCatalo
 	}
 
 	@Override
+	@Deprecated
 	public Collection<FactoryProperties> list() {
 		return new ArrayList<>(listEmbossers());
 	}
@@ -154,6 +155,7 @@ public class EmbosserCatalog implements FactoryCatalog<Embosser>, EmbosserCatalo
 	}
 
 	@Override
+	@Deprecated
 	public Collection<FactoryProperties> list(EmbosserFilter filter) {
 		return new ArrayList<>(listEmbossers(filter));
 	}

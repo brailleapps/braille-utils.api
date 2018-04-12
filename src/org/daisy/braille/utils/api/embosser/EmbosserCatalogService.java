@@ -32,7 +32,9 @@ public interface EmbosserCatalogService {
 	/**
 	 * Lists embossers
 	 * @return returns a list of embossers
+	 * @deprecated use {@link #listEmbossers()}
 	 */
+	@Deprecated
 	public Collection<FactoryProperties> list();
 	
 	/**
@@ -45,7 +47,9 @@ public interface EmbosserCatalogService {
 	 * Lists embossers matching the specified filter
 	 * @param filter the filter
 	 * @return returns a list of embossers
+	 * @deprecated use {@link #listEmbossers(EmbosserFilter)}
 	 */
+	@Deprecated
 	public Collection<FactoryProperties> list(EmbosserFilter filter);
 	
 	/**
