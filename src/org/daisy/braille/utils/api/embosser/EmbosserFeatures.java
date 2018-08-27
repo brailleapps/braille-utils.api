@@ -58,31 +58,31 @@ public class EmbosserFeatures {
 
 	/**
 	 * Embosser feature key,
-	 * corresponding value should be ??
+	 * corresponding value should be an integer
 	 */
 	public static final String NUMBER_OF_COPIES = "copies";
 
 	/**
 	 * Embosser feature key,
-	 * corresponding value should be ??
+	 * corresponding value should be a boolean
 	 */
 	public static final String SADDLE_STITCH = "saddleStitch";
 
 	/**
 	 * Embosser feature key,
-	 * corresponding value should be ??
+	 * corresponding value should be a boolean
 	 */
 	public static final String Z_FOLDING = "zFolding";
 
 	/**
 	 * Embosser feature key,
-	 * corresponding value should be ??
+	 * corresponding value should be a boolean
 	 */
 	public static final String DUPLEX = "duplex";
 
 	/**
 	 * Embosser feature key,
-	 * corresponding value should be ??
+	 * corresponding value should be an integer
 	 */
 	public static final String PAGES_IN_QUIRE = "pagesInQuire";
 }
