@@ -8,8 +8,9 @@ import java.util.Comparator;
  * Note: this comparator imposes orderings that are inconsistent with equals.
  *
  * @author Joel Håkansson
- *
+ * @deprecated use {@link FactoryProperties#newComparatorBuilder()}
  */
+@Deprecated
 public class FactoryPropertiesComparator implements Comparator<FactoryProperties> {
 	private Order order;
 	private By by;
@@ -17,6 +18,7 @@ public class FactoryPropertiesComparator implements Comparator<FactoryProperties
 	/**
 	 * Defines the sort order.
 	 */
+	@Deprecated
 	public enum Order {
 		/**
 		 * Sort up.
@@ -32,6 +34,7 @@ public class FactoryPropertiesComparator implements Comparator<FactoryProperties
 	 * Defines the item to sort by.
 	 *
 	 */
+	@Deprecated
 	public enum By {
 		/**
 		 * Sort by display name
