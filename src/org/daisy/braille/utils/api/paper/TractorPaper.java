@@ -37,22 +37,6 @@ public class TractorPaper extends AbstractPaper {
 	 * @param identifier an identifier
 	 * @param across the width of the paper
 	 * @param along the height of the paper
-	 * @deprecated use {@link #TractorPaper(String, String, String, Length, Length)}
-	 */
-	@Deprecated
-	public TractorPaper(String name, String desc, Enum<? extends Enum<?>> identifier, Length across, Length along) {
-		super(name, desc, identifier);
-		this.across = across;
-		this.along = along;
-	}
-
-	/**
-	 * Creates a new tractor paper
-	 * @param name a name
-	 * @param desc a description
-	 * @param identifier an identifier
-	 * @param across the width of the paper
-	 * @param along the height of the paper
 	 */
 	public TractorPaper(String name, String desc, String identifier, Length across, Length along) {
 		super(name, desc, identifier);

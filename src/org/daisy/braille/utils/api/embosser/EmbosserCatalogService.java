@@ -2,8 +2,6 @@ package org.daisy.braille.utils.api.embosser;
 
 import java.util.Collection;
 
-import org.daisy.braille.utils.api.factory.FactoryProperties;
-
 
 /**
  * <p>
@@ -32,25 +30,8 @@ public interface EmbosserCatalogService {
 	/**
 	 * Lists embossers
 	 * @return returns a list of embossers
-	 * @deprecated use {@link #listEmbossers()}
-	 */
-	@Deprecated
-	public Collection<FactoryProperties> list();
-	
-	/**
-	 * Lists embossers
-	 * @return returns a list of embossers
 	 */
 	public Collection<EmbosserFactoryProperties> listEmbossers();
-
-	/**
-	 * Lists embossers matching the specified filter
-	 * @param filter the filter
-	 * @return returns a list of embossers
-	 * @deprecated use {@link #listEmbossers(EmbosserFilter)}
-	 */
-	@Deprecated
-	public Collection<FactoryProperties> list(EmbosserFilter filter);
 	
 	/**
 	 * Lists embossers matching the specified filter

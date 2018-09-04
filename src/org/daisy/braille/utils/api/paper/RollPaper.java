@@ -36,20 +36,6 @@ public class RollPaper extends AbstractPaper {
 	 * @param desc a description
 	 * @param identifier an identifier
 	 * @param across the height of the roll
-	 * @deprecated use {@link #RollPaper(String, String, String, Length)}
-	 */
-	@Deprecated
-	public RollPaper(String name, String desc, Enum<? extends Enum<?>> identifier, Length across) {
-		super(name, desc, identifier);
-		this.across = across;
-	}
-
-	/**
-	 * Creates a new roll paper
-	 * @param name a name for the paper
-	 * @param desc a description
-	 * @param identifier an identifier
-	 * @param across the height of the roll
 	 */
 	public RollPaper(String name, String desc, String identifier, Length across) {
 		super(name, desc, identifier);

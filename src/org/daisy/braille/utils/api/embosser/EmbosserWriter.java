@@ -74,18 +74,6 @@ public interface EmbosserWriter extends EmbosserWriterProperties, Closeable {
 	public void open(boolean duplex) throws IOException;
 
 	/**
-	 * Opens for writing using the specified contract.
-	 * @param duplex if both sides of sheets should be used, false otherwise
-	 * @param contract the contract
-	 * @throws IOException if an I/O exception of some sort has occurred
-	 * @throws ContractNotSupportedException if the supplied contract is not supported, that is to say
-	 * if the contract does not contain information required by the implementation
-	 * @deprecated Removed without replacement
-	 */
-	@Deprecated
-	public void open(boolean duplex, Contract contract) throws IOException, ContractNotSupportedException;
-
-	/**
 	 * Returns true if embosser is open
 	 * @return returns true if embosser is open, false otherwise
 	 */
