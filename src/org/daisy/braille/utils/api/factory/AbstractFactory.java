@@ -18,7 +18,7 @@
 package org.daisy.braille.utils.api.factory;
 
 import java.io.Serializable;
-import java.util.logging.Logger;
+import java.util.Objects;
 
 /**
  * Provides an abstract class for Factories.
@@ -26,8 +26,7 @@ import java.util.logging.Logger;
  *
  */
 public abstract class AbstractFactory implements Factory, Serializable {
-	private static final Logger logger = Logger.getLogger(AbstractFactory.class.getCanonicalName());
-
+	
 	/**
 	 * 
 	 */
@@ -47,25 +46,7 @@ public abstract class AbstractFactory implements Factory, Serializable {
 	public AbstractFactory(String name, String desc, String identifier) {
 		this.name = name;
 		this.desc = desc;
-		//TODO: Objects.requireNonNull(identifier);
-		if (identifier==null) {
-			this.identifier = this.toString();
-			logger.warning("Don't pass null identifier, this will throw an exception in future versions.");
-		} else {
-			this.identifier = identifier;
-		}
-	}
-
-	/**
-	 * Creates a new AbstractFactory with the supplied values
-	 * @param name the factory name
-	 * @param desc the factory description
-	 * @param identifier the factory identifier
-	 * @deprecated use {@link #AbstractFactory(String, String, String)}
-	 */
-	@Deprecated
-	public AbstractFactory(String name, String desc, Enum<? extends Enum<?>> identifier) {
-		this(name, desc, identifier.getClass().getCanonicalName() + "." + identifier.toString());
+		this.identifier = Objects.requireNonNull(identifier);
 	}
 
 	@Override
