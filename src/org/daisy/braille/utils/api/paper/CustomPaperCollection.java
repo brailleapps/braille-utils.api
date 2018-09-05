@@ -24,7 +24,9 @@ import java.util.Collection;
  * Provides a custom paper collection that lets a user
  * add and remove papers. The collection is stored as
  * a file in the users home directory.
+ * @deprecated use {@link PaperCatalogService}
  */
+@Deprecated
 public class CustomPaperCollection {
 	private static CustomPaperCollection collection;
 
@@ -35,6 +37,7 @@ public class CustomPaperCollection {
 	 * Gets the instance.
 	 * @return returns the instance
 	 */
+	@Deprecated
 	public synchronized static CustomPaperCollection getInstance() {
 		if (collection==null) {
 			collection = new CustomPaperCollection();
@@ -46,6 +49,7 @@ public class CustomPaperCollection {
 	 * Lists the papers in the collection.
 	 * @return returns a collection of papers
 	 */
+	@Deprecated
 	public synchronized Collection<Paper> list() {
 		return UserPapersCollection.getInstance().list();
 	}
@@ -59,6 +63,7 @@ public class CustomPaperCollection {
 	 * @return returns the new sheet paper
 	 * @throws IOException if an I/O error occurs
 	 */
+	@Deprecated
 	public synchronized SheetPaper addNewSheetPaper(String name, String desc, Length width, Length height) throws IOException {
 		return UserPapersCollection.getInstance().addNewSheetPaper(name, desc, width, height);
 	}
@@ -72,6 +77,7 @@ public class CustomPaperCollection {
 	 * @return returns the new tractor paper
 	 * @throws IOException if an I/O error occurs
 	 */
+	@Deprecated
 	public synchronized TractorPaper addNewTractorPaper(String name, String desc, Length across, Length along) throws IOException {
 		return UserPapersCollection.getInstance().addNewTractorPaper(name, desc, across, along);
 	}
@@ -84,6 +90,7 @@ public class CustomPaperCollection {
 	 * @return returns the new roll paper
 	 * @throws IOException if an I/O error occurs
 	 */
+	@Deprecated
 	public synchronized RollPaper addNewRollPaper(String name, String desc, Length across) throws IOException  {
 		return UserPapersCollection.getInstance().addNewRollPaper(name, desc, across);
 	}
@@ -93,6 +100,7 @@ public class CustomPaperCollection {
 	 * @param p the paper to remove
 	 * @throws IOException if an I/O error occurs
 	 */
+	@Deprecated
 	public synchronized void remove(Paper p) throws IOException {
 		UserPapersCollection.getInstance().remove(p);
 	}
