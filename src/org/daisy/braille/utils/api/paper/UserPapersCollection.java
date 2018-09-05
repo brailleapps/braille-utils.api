@@ -33,20 +33,21 @@ import java.util.Date;
  * add and remove papers. The collection is stored as
  * a file in the users home directory.
  */
-public class CustomPaperCollection {
-	private static CustomPaperCollection collection;
+public class UserPapersCollection {
+	private static final String ID_PREFIX = "org.daisy.braille.utils.api.paper.CustomPaperCollection";
+	private static UserPapersCollection collection;
 	private final File f;
 	private ArrayList<Paper> papers;
 	private Integer index;
 	private Date sync;
 
-	private CustomPaperCollection() {
+	private UserPapersCollection() {
 		this.papers = new ArrayList<>();
 		this.index = 0;
 		this.sync = null;
 		File tmp = null;
 		try {
-			tmp = new File(System.getProperty("user.home"), CustomPaperCollection.class.getCanonicalName() + ".obj");
+			tmp = new File(System.getProperty("user.home"), ID_PREFIX + ".obj");
 		} catch (Exception e) {
 			// silently fail here
 		}
@@ -62,9 +63,9 @@ public class CustomPaperCollection {
 	 * Gets the instance.
 	 * @return returns the instance
 	 */
-	public synchronized static CustomPaperCollection getInstance() {
+	public synchronized static UserPapersCollection getInstance() {
 		if (collection==null) {
-			collection = new CustomPaperCollection();
+			collection = new UserPapersCollection();
 		}
 		return collection;
 	}
@@ -135,7 +136,7 @@ public class CustomPaperCollection {
 
 	private String nextIdentifier() {
 		index++;
-		return CustomPaperCollection.class.getCanonicalName()+"_"+index;
+		return ID_PREFIX+"_"+index;
 	}
 
 	@SuppressWarnings("unchecked")
