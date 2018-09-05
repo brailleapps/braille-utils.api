@@ -33,7 +33,7 @@ import java.util.Date;
  * add and remove papers. The collection is stored as
  * a file in the users home directory.
  */
-public class UserPapersCollection {
+class UserPapersCollection {
 	private static final String ID_PREFIX = "org.daisy.braille.utils.api.paper.CustomPaperCollection";
 	private static UserPapersCollection collection;
 	private final File f;
@@ -63,7 +63,7 @@ public class UserPapersCollection {
 	 * Gets the instance.
 	 * @return returns the instance
 	 */
-	public synchronized static UserPapersCollection getInstance() {
+	synchronized static UserPapersCollection getInstance() {
 		if (collection==null) {
 			collection = new UserPapersCollection();
 		}
@@ -74,7 +74,7 @@ public class UserPapersCollection {
 	 * Lists the papers in the collection.
 	 * @return returns a collection of papers
 	 */
-	public synchronized Collection<Paper> list() {
+	synchronized Collection<Paper> list() {
 		return papers;
 	}
 
@@ -87,7 +87,7 @@ public class UserPapersCollection {
 	 * @return returns the new sheet paper
 	 * @throws IOException if an I/O error occurs
 	 */
-	public synchronized SheetPaper addNewSheetPaper(String name, String desc, Length width, Length height) throws IOException {
+	synchronized SheetPaper addNewSheetPaper(String name, String desc, Length width, Length height) throws IOException {
 		return (SheetPaper)add(new SheetPaper(name, desc, nextIdentifier(), width, height));
 	}
 
@@ -100,7 +100,7 @@ public class UserPapersCollection {
 	 * @return returns the new tractor paper
 	 * @throws IOException if an I/O error occurs
 	 */
-	public synchronized TractorPaper addNewTractorPaper(String name, String desc, Length across, Length along) throws IOException {
+	synchronized TractorPaper addNewTractorPaper(String name, String desc, Length across, Length along) throws IOException {
 		return (TractorPaper)add(new TractorPaper(name, desc, nextIdentifier(), across,	along));
 	}
 
@@ -112,7 +112,7 @@ public class UserPapersCollection {
 	 * @return returns the new roll paper
 	 * @throws IOException if an I/O error occurs
 	 */
-	public synchronized RollPaper addNewRollPaper(String name, String desc, Length across) throws IOException  {
+	synchronized RollPaper addNewRollPaper(String name, String desc, Length across) throws IOException  {
 		return (RollPaper)add(new RollPaper(name, desc, nextIdentifier(), across));
 	}
 
@@ -128,7 +128,7 @@ public class UserPapersCollection {
 	 * @param p the paper to remove
 	 * @throws IOException if an I/O error occurs
 	 */
-	public synchronized void remove(Paper p) throws IOException {
+	synchronized void remove(Paper p) throws IOException {
 		syncWithFile();
 		papers.remove(p);
 		updateFile();
