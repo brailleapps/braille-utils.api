@@ -26,7 +26,11 @@ import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
 import java.util.ArrayList;
 import java.util.Collection;
+import java.util.Collections;
 import java.util.Date;
+import java.util.LinkedHashMap;
+import java.util.Map;
+import java.util.stream.Collectors;
 
 /**
  * Provides a custom paper collection that lets a user
@@ -37,12 +41,12 @@ enum UserPapersCollection {
 	INSTANCE;
 	private static final String ID_PREFIX = "org.daisy.braille.utils.api.paper.CustomPaperCollection";
 	private final File f;
-	private ArrayList<Paper> papers;
+	private Map<String, Paper> papers;
 	private Integer index;
 	private Date sync;
 
 	private UserPapersCollection() {
-		this.papers = new ArrayList<>();
+		this.papers = new LinkedHashMap<>();
 		this.index = 0;
 		this.sync = null;
 		File tmp = null;
@@ -66,13 +70,21 @@ enum UserPapersCollection {
 	synchronized static UserPapersCollection getInstance() {
 		return INSTANCE;
 	}
+	
+	synchronized Paper get(String identifier) {
+		return papers.get(identifier);
+	}
 
 	/**
 	 * Lists the papers in the collection.
 	 * @return returns a collection of papers
 	 */
 	synchronized Collection<Paper> list() {
-		return papers;
+		return papers.values();
+	}
+	
+	synchronized Map<String, Paper> getMap() {
+		return Collections.unmodifiableMap(papers);
 	}
 
 	/**
@@ -115,7 +127,7 @@ enum UserPapersCollection {
 
 	private Paper add(Paper p) throws IOException {
 		syncWithFile();
-		papers.add(p);
+		papers.put(p.getIdentifier(), p);
 		updateFile();
 		return p;
 	}
@@ -127,7 +139,7 @@ enum UserPapersCollection {
 	 */
 	synchronized void remove(Paper p) throws IOException {
 		syncWithFile();
-		papers.remove(p);
+		papers.remove(p.getIdentifier());
 		updateFile();
 	}
 
@@ -150,7 +162,8 @@ enum UserPapersCollection {
 					//lock = is.getChannel().tryLock();
 					ois = new ObjectInputStream(is);
 					index = (Integer)ois.readObject();
-					papers = (ArrayList<Paper>)ois.readObject();
+					papers = new LinkedHashMap<>(((ArrayList<Paper>)ois.readObject()).stream()
+							.collect(Collectors.toMap(p->p.getIdentifier(), p->p, (p1, p2)->p2)));
 					sync = new Date(f.lastModified());
 				} catch (IOException e) {
 					throw e;
@@ -181,7 +194,7 @@ enum UserPapersCollection {
 			os = new FileOutputStream(f);
 			oos = new ObjectOutputStream(os);
 			oos.writeObject(index);
-			oos.writeObject(papers);
+			oos.writeObject(new ArrayList<>(papers.values()));
 		} catch (IOException e) {
 			throw e;
 		} catch (Exception e) {

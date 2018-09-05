@@ -38,5 +38,63 @@ public interface PaperCatalogService {
 	 * @return returns a list of papers
 	 */
 	public Collection<Paper> list(PaperFilter filter);
+	
+	/**
+	 * Returns true if user papers are supported, false otherwise. If this method
+	 * returns false, {@link #addNewSheetPaper(String, String, Length, Length)},
+	 * {@link #addNewRollPaper(String, String, Length)},
+	 * {@link #addNewTractorPaper(String, String, Length, Length)},
+	 * {@link #isRemovable(Paper)},
+	 * {@link #remove(Paper)} 
+	 *  should not be used.
+	 * 
+	 * @return true if user papers are supported, false otherwise
+	 */
+	public boolean supportsUserPapers();
+	
+	/**
+	 * Adds a new sheet paper to the collection.
+	 * @param name the name
+	 * @param desc the description
+	 * @param width the width
+	 * @param height the height
+	 * @return true if the paper was added successfully, false otherwise
+	 */
+	public boolean addNewSheetPaper(String name, String desc, Length width, Length height);
+	
+	/**
+	 * Adds a new tractor paper to the collection.
+	 * @param name the name
+	 * @param desc the description
+	 * @param across the length across the feed
+	 * @param along the length along the feed
+	 * @return true if the paper was added successfully, false otherwise
+	 */
+	public boolean addNewTractorPaper(String name, String desc, Length across, Length along);
+	
+	/**
+	 * Adds a new roll paper to the collection.
+	 * @param name the name
+	 * @param desc the description
+	 * @param across the length across the feed
+	 * @return true if the paper was added successfully, false otherwise
+	 */
+	public boolean addNewRollPaper(String name, String desc, Length across);
+
+	/**
+	 * Returns true if the paper can be removed, false otherwise
+	 * @param paper the paper
+	 * @return true if the paper can be removed, false otherwise
+	 */
+	public boolean isRemovable(Paper paper);
+
+	/**
+	 * Removes the specified paper from the collection.
+	 * @param p the paper to remove
+	 * @return true if the paper was successfully removed, false otherwise
+	 */
+	public boolean remove(Paper p);
+
+	//TODO: is needed? public Collection<Paper> listRemovable();
 
 }
