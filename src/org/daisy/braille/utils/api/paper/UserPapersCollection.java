@@ -33,9 +33,9 @@ import java.util.Date;
  * add and remove papers. The collection is stored as
  * a file in the users home directory.
  */
-class UserPapersCollection {
+enum UserPapersCollection {
+	INSTANCE;
 	private static final String ID_PREFIX = "org.daisy.braille.utils.api.paper.CustomPaperCollection";
-	private static UserPapersCollection collection;
 	private final File f;
 	private ArrayList<Paper> papers;
 	private Integer index;
@@ -64,10 +64,7 @@ class UserPapersCollection {
 	 * @return returns the instance
 	 */
 	synchronized static UserPapersCollection getInstance() {
-		if (collection==null) {
-			collection = new UserPapersCollection();
-		}
-		return collection;
+		return INSTANCE;
 	}
 
 	/**
