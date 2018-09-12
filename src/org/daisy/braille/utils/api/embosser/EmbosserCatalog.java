@@ -54,6 +54,8 @@ public class EmbosserCatalog implements FactoryCatalog<Embosser>, EmbosserCatalo
 		logger = Logger.getLogger(this.getClass().getCanonicalName());
 		providers = new CopyOnWriteArrayList<>();
 		map = Collections.synchronizedMap(new HashMap<String, EmbosserProvider>());
+		logger.warning("Note: braille-utils.api has been merged into dotify.api (https://github.com/brailleapps/dotify.api). " +
+						"braille-utils.api will not be updated anymore. Please use dotify.api.");
 	}
 
 	/**

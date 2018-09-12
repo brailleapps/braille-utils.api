@@ -48,6 +48,8 @@ public class PaperCatalog implements PaperCatalogService {
 	 */
 	public PaperCatalog() {
 		map = Collections.synchronizedMap(new HashMap<String, Paper>(UserPapersCollection.getInstance().getMap()));
+		logger.warning("Note: braille-utils.api has been merged into dotify.api (https://github.com/brailleapps/dotify.api). " +
+				"braille-utils.api will not be updated anymore. Please use dotify.api.");
 	}
 
 	/**
